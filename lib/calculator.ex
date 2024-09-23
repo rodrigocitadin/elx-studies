@@ -38,8 +38,23 @@ defmodule Calculator do
     end
   end
 
-  def addition(server_id, value), do: send(server_id, {:add, value})
-  def subtraction(server_id, value), do: send(server_id, {:sub, value})
-  def multiply(server_id, value), do: send(server_id, {:mult, value})
-  def divide(server_id, value), do: send(server_id, {:div, value})
+  def addition(server_id, value) do
+    send(server_id, {:add, value})
+    value(server_id)
+  end
+
+  def subtraction(server_id, value) do
+    send(server_id, {:sub, value})
+    value(server_id)
+  end
+
+  def multiply(server_id, value) do
+    send(server_id, {:mult, value})
+    value(server_id)
+  end
+
+  def divide(server_id, value) do
+    send(server_id, {:div, value})
+    value(server_id)
+  end
 end
